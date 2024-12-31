@@ -1,6 +1,9 @@
 # VS Code
 .vscode
 
+# RustRover
+.idea
+
 # Trying stuff locally
 /_studies
 
