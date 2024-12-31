@@ -730,13 +730,16 @@ fn render_date_part<T: EntryLike>(
                 if val != 1
                     || !ctx
                         .style
-                        .lookup_locale(|l| {
-                            Some(
-                                l.style_options
-                                    .and_then(|o| o.limit_day_ordinals_to_day_1)
-                                    .unwrap_or_default(),
-                            )
-                        })
+                        .lookup_locale(
+                            |l| {
+                                Some(
+                                    l.style_options
+                                        .and_then(|o| o.limit_day_ordinals_to_day_1)
+                                        .unwrap_or_default(),
+                                )
+                            },
+                            ctx.instance.locale
+                        )
                         .unwrap_or_default() =>
             {
                 let gender = date
